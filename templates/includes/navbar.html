@@ -1,0 +1,195 @@
+<nav class="navbar navbar-expand-lg bg-info shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'core:home' %}">Ekart</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="{% url 'core:home' %}"
+            >Home</a
+          >
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'core:category_list' %}">Category</a>
+        </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Product
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="{% url 'core:product_list' %}"
+              >Product list</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="{% url 'core:product_create' %}"
+              >Create Product</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {% if user.is_authenticated %} 
+          {{user}} 
+          {% else %}
+          Account 
+          {% endif %}
+        </a>
+        <ul class="dropdown-menu">
+          {% if user.is_authenticated %}
+          <li>
+            <a class="dropdown-item" href="{% url 'user:user_logout' %}"
+              >Logout</a
+            >
+          </li>
+          {% else %}
+          <li>
+            <a class="dropdown-item" href="{% url 'user:user_login' %}"
+              >Login</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="{% url 'user:user_signup' %}"
+              >Signup</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Cart
+          <span class="badge rounded-pill text-bg-danger"
+            >{{cart.items.count}}</span
+          >
+        </a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-item d-flex justify-content-between fw-bold">
+            <span>Item</span>
+            <span>Qty</span>
+          </li>
+          {% for item in cart.items %}
+          <li class="dropdown-item d-flex justify-content-between">
+            <a
+              class="link-primary"
+              href="{% url 'core:product_detail' item.product.id %}"
+            >
+              {{item.product}}
+            </a>
+            <span class="fw-bold">{{item.quantity}}</span>
+          </li>
+          {% empty %}
+          <li>Nothing Found!</li>
+          {% endfor %}
+          <li class="dropdown-item d-flex justify-content-between fw-bold text-bg-primary">
+            <a href="" class="link-light">Checkout</a>
+          </li>
+        </ul>
+      </li> 
+    </ul>
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+      delivery
+      </a>
+    
+    <ul class="dropdown-menu">
+      <li>
+        <a class="dropdown-item" href="{% url 'core:delivery' %}"
+          >Delivery Address</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{% url 'core:shipment' %}"
+          >Shipment Details</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{% url 'core:ordersummary' %}"
+          >Order Summary</a
+        >
+      </li>
+    </ul>
+  </li>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          href="{% url 'core:checkout' %}"
+          >check out</a
+        >
+      </li>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="{% url 'core:payment' %}"
+              >payment</a>
+          </li>
+      <div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{% url 'core:user' %}"
+                >user</a>
+            </li>
+        <div>
+    <form class="d-flex" role="search">
+          <input
+            class="form-control me-2 navbar"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+      </div>
+  </nav> 
+

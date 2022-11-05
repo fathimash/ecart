@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>Product Detail</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <img src="{{product.image.url}}" class="img img-thumnail" width="100%" alt="">
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{product.name}}</h4>
+          <p class="card-text">INR {{product.price}}</p>
+          <div class="rating-container ">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <p class="card-text">{{product.description}}</p>
+          <div>
+            <a href="{% url 'core:product_update' product.id %}" class="btn btn-primary">Update</a>
+            <a href="{% url 'core:product_delete' product.id %}" class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+
+
+, or

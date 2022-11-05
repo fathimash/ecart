@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+  <div class="container">
+    <i><h2>CHECK OUT</h2></i>
+    <div class="row">
+      <div class="prod">
+        <ol style="color:rgb(235, 60, 89)">
+        <b><h5> ITEMS IN CART</h5></b></ol>
+      </div>
+      <div class="column">
+       
+        <p>Maurice Lacroix<br>&pound;575.99</p>
+        <label>Add:</label>
+        <input type="number" class="items" id="item0" min="0" max="99" step="1" value="0">
+        <label>Add Size:</label>
+        <input type="size" class="items" id="item1" min="XS" max="XXL" step="1" value="0">
+      </div>
+      <div class="column">
+       
+        <p>Rider<br>&pound;59.99</p>
+        <label>Add:</label>
+        <input type="number" class="items" id="item1" min="0" max="99" step="1" value="0">
+        <label>Add Size:</label>
+        <input type="size" class="items" id="item1" min="XS" max="XXL" step="1" value="0">
+      </div>
+      <div class="column">
+       
+        <p>U-Boat<br>&pound;7550.99</p>
+        <label>Add:</label>
+        <input type="number" class="items" id="item2" min="0" max="99" step="1" value="0">
+        <label>Add Size:</label>
+        <input type="size" class="items" id="item1" min="XS" max="XXL" step="1" value="0">
+      </div>
+    </div>
+  </div>
+  <button class="checkout" id="checkout">Return To Cart</button>
+    <button class="checkout" id="checkout">Checkout</button>
+    <button class="checkout" id="checkout">Cancel Order</button>
+  </div>
+
+    
+{% endblock %}

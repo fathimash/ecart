@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <ol style="color:rgb(66, 32, 218)"> 
+        <h2 class="text-center">Products for you</h2></ol>
+        <hr />
+      </div>
+    </div>
+
+    <div class="row row-cols-lg-4 g-3">
+      {% for product in products %}
+      <div class="col">
+        <div class="card">
+          <img src="{{product.image.url}}" class="card-img-top" alt="..." height="200px" />
+          <div class="card-body">
+            <h5 class="card-title overflow-hidden" style="width: 200px; height: 28px;">
+              <a
+                href="{% url 'core:product_detail' product.id %}"
+                class="link-primary "
+                 >{{product.name}}</a
+              >
+            </h5>
+             <p class="card-text">Price: {{product.price}}</p>
+            <p class="card-text overflow-hidden" style="height: 50px;">Description: {{product.description}}</p>
+            <!-- categories -->
+           
+            <div>
+              <p class="card-text">Categories</p>
+              <ul>
+                {% for category in product.category.all %}
+                <li>{{category}}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <p class="card-text">Category: {{product.category}}</p>
+            <p class="card-text text-muted fst-italic">
+              Last updated: {{product.updated_on|date}}
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'core:add_to_cart' product.id %}" class="btn btn-primary">
+              <i class="fa-solid fa-cart-shopping"></i>
+              Add to cart
+            </a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col">
+        <p>no product found</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
+
+
+
