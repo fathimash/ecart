@@ -1,9 +1,10 @@
-{% extends "base.html" %} {% block content %}
-<div class="container-fluid bg-light vh-100">
-  <div class="row justify-content-center align-items-center h-100">
+{% extends "base.html" %} 
+{% block content %}
+<Body background="https://cdn2.hubspot.net/hubfs/2004318/glassbuilding.jpg">  
+  <div class="row justify-content-center align-items-center h-100 m-5" style="margin-top:200px;">
     <div class="col-lg-6">
       <div class="card shadow">
-        <div class="card-body">
+        <div class="card-body m-5">
           <h1 class="card-title">Login</h1>
           <form action="" method="post">
             {% csrf_token %} {{form.as_p}}
@@ -17,5 +18,8 @@
       </div>
     </div>
   </div>
+ </div>
 </div>
+</Body>
 {% endblock content %}
+

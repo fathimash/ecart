@@ -1,6 +1,8 @@
-{% extends 'base.html' %} {% block content %}
-<section>
-  <div class="container">
+{% extends 'base.html' %} 
+{% block content %}
+<Body background=https://thumbs.dreamstime.com/b/pink-blue-soft-color-mixed-background-painting-art-pastel-abstract-colorful-art-wallpaper-abstract-colorful-bright-color-soft-117208177.jpg>  
+<!-- <section style="background-color: rgb(245, 233, 235);"> -->
+  <div class="m-5">
     <div class="row">
       <div class="col">
         <span style="font-family: 'Times New Roman', Times, serif">
@@ -9,9 +11,8 @@
       </div>
     </div>
   </div>
-</section>
-<!-- <!-- #caurosel -->
-<div class="container">
+  <!--#caurosel -->
+  <div class="container">
   <section class="hero-section">
     <div
       id="carouselExampleControls"
@@ -49,9 +50,9 @@
       </button>
     </div>
   </section>
-<!-- <!-- #caurosel -->
+  <!-- <!-- #caurosel -->
 
-<section class="pt-5 pb-5">
+  <section class="pt-5 pb-5">
   <div class="container">
     <div class="row">
       <div class="col-6">
@@ -100,10 +101,10 @@
                 <div class="col-md-4 mb-3">
                 <div class="card border-primary text-primary">
                   <div class="card">
-                    <img class="img-fluid"  src="/media/default/iu73.jpeg" style="height: 200px;">
+                    <img class="img-fluid"  alt="100%x280" src="/media/default/iu73.jpeg" style="height: 200px;">
                     <div class="card-body">
                       <ol style="color:rgb(66, 32, 218)"> 
-                      <h4 style="height: 50px;" class="card-title">what about grabbing the new Xiaomi Redmi 11 Pro-Max </h4></ol>
+                      <h4 style="height: 50px;" class="card-title">what about the Redmi 11 Pro-Max </h4></ol>
                       <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
                     </div>
                   </div>
@@ -195,8 +196,8 @@
       </div>
     </div>
   </div>
-</section>
-<section class="py-5">
+  </section>
+  <section class="py-5">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -217,7 +218,7 @@
               <a
                 href="{% url 'core:product_detail' product.id %}"
                 class="link-primary "
-                 >{{product.name}}</a
+                  >{{product.name}}</a
               >
 
             </h5>
@@ -227,22 +228,21 @@
             <div>
               <p class="card-text">Categories</p>
               <ul>
-                {% for category in products.category.all %}
+                {% for category in product.category.all %}
                 <li>{{category}}</li>
                 {% endfor %}
               </ul>
             </div>
-            <p class="card-text">Category: {{product.category}}</p>
             <p class="card-text text-muted fst-italic">
               Last updated: {{product.updated_on|date}}
             </p>
           </div>
-          <div class="card-footer">
+          <!-- <div class="card-footer">
             <a href="{% url 'core:add_to_cart' product.id %}" class="btn btn-primary">
               <i class="fa-solid fa-cart-shopping"></i>
               Add to cart
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
       {% empty %}
@@ -252,12 +252,13 @@
       {% endfor %}
     </div>
   </div>
-</section>
+  </section>
             </div>
         </div>
     </div>
-</section>
-
+  </section>
+<!-- </section> -->
+</Body>
 {% endblock content %}
 
 

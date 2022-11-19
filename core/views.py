@@ -1,4 +1,3 @@
-
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 
@@ -7,62 +6,58 @@ from core.forms import FeedbackForm, ProductForm
 from django.views import generic as views
 
 
-
-#home view
+# home view
 class HomeView(views.TemplateView):
     template_name = "core/home.html"
 
-    extra_context = {
-        "products" : core_models.ProductModel.objects.filter(status=True)
-    }
+    extra_context = {"products": core_models.ProductModel.objects.filter(status=True)}
 
-#about_us view
+
+# about_us view
 class AboutView(views.TemplateView):
     template_name = "core/about_us.html"
+
 
 # ================================= FEEDBACK ================================= #
 
 
-
-#feedback create view
+# feedback create view
 class FeedbackCreateView(views.CreateView):
-    template_name="core/feedback_create.html"
+    template_name = "core/feedback_create.html"
     model = core_models.FeedbackModel
-    form_class=FeedbackForm
-    success_url=reverse_lazy("core:home")
+    form_class = FeedbackForm
+    success_url = reverse_lazy("core:home")
+
 
 class FeedbackListView(views.ListView):
     template_name = "core/feedback_list.html"
     model = core_models.FeedbackModel
-    form_class=FeedbackForm
-    success_url=reverse_lazy("core:home")
+    form_class = FeedbackForm
+    success_url = reverse_lazy("core:home")
+
 
 class FeedbackDeleteView(views.ListView):
     template_name = "core/feedback_delete.html"
     model = core_models.FeedbackModel
-    form_class=FeedbackForm
-    success_url=reverse_lazy("core:home")
+    form_class = FeedbackForm
+    success_url = reverse_lazy("core:home")
 
 
 class FeedbackDetailView(views.ListView):
     template_name = "core/feedback_detail.html"
     model = core_models.FeedbackModel
-    form_class=FeedbackForm
-    success_url=reverse_lazy("core:home")
-
+    form_class = FeedbackForm
+    success_url = reverse_lazy("core:home")
 
 
 class FeedbackUpdateView(views.ListView):
     template_name = "core/feedback_update.html"
     model = core_models.FeedbackModel
-    form_class=FeedbackForm
-    success_url=reverse_lazy("core:home")
-
+    form_class = FeedbackForm
+    success_url = reverse_lazy("core:home")
 
 
 # ================================= FEEDBACK END ================================= #
-
-
 
 
 # ================================= PRODUCT START ================================= #
@@ -103,12 +98,12 @@ class ProductDeleteView(views.DeleteView):
     model = core_models.ProductModel
     success_url = reverse_lazy("core:product_list")
 
+
 # ================================= PRODUCT END ================================= #
 
 
-
-
 # ================================= CATEGORY START ================================= #
+
 
 class ProductByCategoryView(views.ListView):
     template_name = "core/product_list.html"
@@ -127,12 +122,17 @@ class CategoryListView(views.ListView):
     model = core_models.CategoryModel
     context_object_name = "categories"
 
+
+
+
 # =================================CATEGORY END================================= #
 
-#cart
+# cart
 
 
 from django.contrib import messages
+
+
 class AddToCartView(views.View):
     def get(self, request, pk):
         # try:
@@ -156,36 +156,75 @@ class AddToCartView(views.View):
         return redirect(url)
 
 
-#delivery
+#cart
+class CartView(views.TemplateView):
+    template_name = "core/checkout/cart.html"
+
+
+#remove
+class CartDeleteView(views.DeleteView):
+    template_name = "core/checkout/cart_delete.html"  
+    model = core_models.CartModel
+
+
+# delivery
 class DeliveryView(views.TemplateView):
     template_name = "core/delivery/delivery_address.html"
-   
-#shipment
+
+
+# shipment
 class ShipmentView(views.TemplateView):
     template_name = "core/delivery/shipment_details.html"
 
-#order summary
+
+# order summary
+
 
 class OrdersummaryView(views.TemplateView):
     template_name = "core/delivery/order_summary.html"
 
 
-#checkout
+# order placed
+class OrderplacedView(views.TemplateView):
+    template_name = "core/orderplaced/ordr_placed.html"
 
+
+
+# checkout
 class CheckoutView(views.TemplateView):
     template_name = "core/checkout/checkout.html"
 
-#payment
+
+class CancelorderView(views.TemplateView):
+    template_name = "core/checkout/cancelorder.html"
+
+class CanceltemplateView(views.TemplateView):
+    template_name = "core/checkout/canceltemplate.html"
+
+
+
+
+# payment
 class PaymentView(views.TemplateView):
     template_name = "core/payment/payment.html"
 
 
-#user
+# payment success
+class PaymentsuccessView(views.TemplateView):
+    template_name = "core/payment/paysuccess.html"
+
+
+# user
 class UserView(views.TemplateView):
     template_name = "core/user/user.html"
 
-#add more  details
+
+# add more  details
 class AdddetailView(views.TemplateView):
     template_name = "core/user/add_details.html"
 
+
+# add new address
+class AddnewaddressView(views.TemplateView):
+    template_name = "core/user/addnew_address.html"
 

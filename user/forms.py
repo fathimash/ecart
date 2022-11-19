@@ -18,12 +18,10 @@ class ProfileForm(forms.ModelForm):
         model = user_models.ProfileModel
         exclude = (
             "status",
-            "user",
-            "address",
+            "created_on",
+            "updated_on",
         )
-        widgets = {
-            "dob": forms.DateInput(attrs={"type": "date"}),
-        }
+       
 
 
 class AddressForm(forms.ModelForm):

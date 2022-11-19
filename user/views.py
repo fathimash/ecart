@@ -6,7 +6,9 @@ from django.contrib.auth import forms as auth_forms
 from django.contrib import messages
 
 from user import forms as user_form
-from user import models
+from user import models as user_models
+from user.forms import ProfileForm
+
 
 USER = get_user_model()
 
@@ -51,4 +53,23 @@ class UserLogoutView(views.View):
         logout(request)
         messages.success(request, "Successfully Logged out")
         return render(request, self.template_name)
+
+# profile create view
+class ProfileCreateView(views.CreateView):
+    template_name = "user/profile_create.html"
+    model = user_models.ProfileModel
+    form_class = ProfileForm
+    success_url = reverse_lazy("user:profile_detail")
+
+# feedback updateview
+class ProfileUpdateView(views.UpdateView):
+    template_name = "user/profile_update.html"
+    model = user_models.ProfileModel
+    form_class = ProfileForm
+    success_url = reverse_lazy("user:profile_detail")
+
+class ProfileDetailView(views.TemplateView):
+    template_name = "user/profile_detail.html"
+    model = user_models.ProfileModel
+    context_object_name = "profile"
 

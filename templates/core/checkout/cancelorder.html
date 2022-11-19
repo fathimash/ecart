@@ -1,0 +1,22 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card m-5">
+    <section style="background-color: rgb(245, 233, 235);">
+    <div class="text-center m-5">
+        
+        <h8>
+            ARE YOU SURE YOU WANT TO DELETE THIS ORDER !  
+        </h8>
+        <i class="fa-solid fa-face-sad-tear"></i>   
+   </div>
+   <div class="text-center m-5">
+   
+   <button class="btn1"><a href="{% url 'core:canceltemplate' %}">YES </button></a>
+   <button class="btn1"><a href="{% url 'core:checkout' %}">NO </button></a>
+ </div>
+</div>
+</section>
+{% endblock %}

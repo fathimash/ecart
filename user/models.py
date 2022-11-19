@@ -47,7 +47,6 @@ class ProfileModel(models.Model):
     )
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
-    dob = models.DateField()
     gender = models.CharField(max_length=15, choices=GENDER_CHOICES)
     image = models.ImageField(upload_to="user/profile/image/", default="default/user.png")
     phone_number = models.CharField(max_length=15)

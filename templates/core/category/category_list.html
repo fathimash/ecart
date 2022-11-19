@@ -1,6 +1,38 @@
 {% extends "base.html" %} {% block content %}
 
-<section class="py-5">
+<section class="bg-light">
+  <div class="p-4">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center bg-light text-dark">Product Categories</h2>
+        <hr />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col p-4">
+        {% for category in categories %}
+        <div class="card bg-black m-4 rounded-3">
+          <div class="card-body link-primary text-center">
+            <p class="card-text">
+              <a
+                href="{% url 'core:product_by_category' category.id %}"
+                class="text-uppercase text-decoration-none"
+              >
+                {{category}}
+              </a>
+            </p>
+          </div>
+        </div>
+        {% empty %}
+        <h5>Nothing found!</h5>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
+
+<!-- <section class="py-5">
   <div class="container">
     <div class="row">
         <div class="col">
@@ -40,11 +72,4 @@
       </div>
     </div>
   </div>
-</section>
-
-{% endblock content %}
-
-
-
-
-
+</section> -->

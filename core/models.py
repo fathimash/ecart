@@ -26,24 +26,7 @@ class CategoryModel(models.Model):
     def __str__(self):
         return f"{self.name}"
 
-
-#product
-
-class ProductModel(models.Model):
-    name = models.CharField(max_length=64)
-    description = models.TextField(max_length=500)
-    price = models.FloatField()
-    image = models.ImageField(upload_to="product/image/", default="default/product.png")
-    category = models.ManyToManyField(CategoryModel)
-    status = models.BooleanField(default=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return f"{self.name}"
-
-
- # Unit model
+# Unit model
 
 class UnitModel(models.Model):
     name = models.CharField(max_length=64)
@@ -59,6 +42,26 @@ class UnitModel(models.Model):
     def __str__(self):
         return f"{self.name}"
 
+
+#product
+
+class ProductModel(models.Model):
+    name = models.CharField(max_length=64)
+    description = models.TextField(max_length=500)
+    price = models.FloatField()
+    size = models.CharField(max_length=10)
+    image = models.ImageField(upload_to="product/image/", default="default/product.png")
+    category = models.ManyToManyField(CategoryModel)
+    status = models.BooleanField(default=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+ 
 USER=get_user_model()
 
 # Cart Model
@@ -68,7 +71,7 @@ class CartModel(models.Model):
     status = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-
+    size = models.CharField(default=0,max_length=5)
     def items(self):
         cart_items = CartItemModel.objects.filter(
             cart=self,

@@ -46,27 +46,36 @@ urlpatterns = [
     ),
     # category
     path("category/list/", views.CategoryListView.as_view(), name="category_list"),
-    path(
-        "product_by_category/<int:pk>/list/",
-        views.ProductByCategoryView.as_view(),
-        name="product_by_category",
-    ),
+    path("product_by_category/<int:pk>/list/",views.ProductByCategoryView.as_view(), name="product_by_category",),
+   
     # Cart
-    path(
-        "cart/product/<int:pk>/add/", views.AddToCartView.as_view(), name="add_to_cart"
-    ),
+    path("cart/product/<int:pk>/add/", views.AddToCartView.as_view(), name="add_to_cart"),
+    path("cart/", views.CartView.as_view(), name="cart"),
+    path("cart_delete/", views.CartView.as_view(), name="cart_delete"),
+
     # delivery
     path("delivery/", views.DeliveryView.as_view(), name="delivery"),
     # shipment
     path("shipment/", views.ShipmentView.as_view(), name="shipment"),
     # ordersummary
     path("ordersummary/", views.OrdersummaryView.as_view(), name="ordersummary"),
+    #orderplaced
+     path("ordr_placed/", views.OrderplacedView.as_view(), name="ordr_placed"),
     # checkout
     path("checkout/", views.CheckoutView.as_view(), name="checkout"),
+    # cancelorder
+    path("cancelorder/", views.CancelorderView.as_view(), name="cancelorder"),
+     # canceltemplate
+    path("canceltemplate/", views.CanceltemplateView.as_view(), name="canceltemplate"),
+    
+
+
     # payment
     path("payment/", views.PaymentView.as_view(), name="payment"),
+    # payment success
+    path("paymentsuccess/", views.PaymentsuccessView.as_view(), name="paymentsuccess"),
     # user
     path("user/", views.UserView.as_view(), name="user"),
-    # user
     path("add_details/", views.AdddetailView.as_view(), name="add_details"),
+    path("addnew_address/", views.AddnewaddressView.as_view(), name="addnew_address"),
 ]

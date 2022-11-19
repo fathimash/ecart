@@ -1,6 +1,7 @@
 
 body{
     margin:0;
+    
 }
 
 .text-center{
@@ -135,23 +136,23 @@ body{
         
       }
      
-      button[type="order1"]{
-        background: linear-gradient(-60deg, #05fd);
+      .order1{
+        float:left;
         padding: 5px 10px;
-        margin: 20px 15px 2px ;
-        outline: 0;
+        margin: 20px 15px  2px;
         font-size: 18px;
-        float:center;
         color:black;
         background-color:rgb(241, 155, 184);
-        border-color:rgb(199, 88, 250);;
+        border-color:rgb(170, 12, 243);;
             
         
        
       }
-      button[type="order1"]:hover { background: linear-gradient(-60deg,lightblue);
-        font-size: 18px;
-        color:whitesmoke;
+      .order1:hover {
+        background-color:rgb(241, 155, 184);
+        border-color:rgb(199, 88, 250);;
+        font-size: 16px;
+        
         
       }
 
@@ -160,7 +161,9 @@ body{
         padding: 5px 15px;
         margin: 20px 10px 10px 10px;
     }
-
+.text-right{
+  text-align: right;
+}
     .btn1{
         text-align: center;
         color:black;
@@ -168,15 +171,16 @@ body{
         border-color:rgb(199, 88, 250);
         padding: 5px 15px;
         margin: 20px 10px 10px 10px;
-        font-size:18px;
+        font-size: 18px;
+        
     
     }
 
     .btn1:hover{
       text-align: center;
       color:white;
-      padding: 5px 15px;
-      margin: 20px 10px 10px 10px;
+      border-color:rgb(199, 88, 250);
+      background-color:rgb(241, 155, 184);
       font-size:18px;
     }
 
@@ -194,15 +198,14 @@ body{
 
     .btn2:hover{
       text-align: center;
-      color:white;
+      background-color:rgb(241, 155, 184);
+      border-color:rgb(199, 88, 250);
+      color:black;
       padding: 5px 15px;
       margin: 20px 10px 10px 10px;
       font-size:18px;
     }
-        p{
-            color:black;
-        }
-
+      
         
     /* #.........checkout.......... */
 
@@ -266,3 +269,20 @@ body{
       margin: 20px 10px 10px 10px;
       font-size:18px;
     }
+
+
+    .start-25{
+      left: 33%;
+    }
+
+    
+h8{
+color:brown;
+  
+}
+
+
+
+    
+    
+    

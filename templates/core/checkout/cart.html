@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="  m-5">
+    <i><h2>CART</h2></i>
+    <div class="row">
+      <div class="prod">
+        <ol style="color:rgb(235, 60, 89)">
+        <b><h5 class="text-center"> ITEMS IN CART</h5></b></ol>
+      </div>
+      <div class="card ">
+        {% for item in cart.items %}
+        <p>{{item.product}}<br>&pound;{{item.product.price}}</p>
+        <p>{{item.description}}{{item.product.description}}</p>
+       <a href="{% url 'core:product_detail' item.product.id %}"
+      >
+        <p>{{item}}</p>
+        <div class="text-center">
+        <button class="checkout"><a href="{% url 'core:cart_delete' %}">Remove</button></a>
+        </div>
+        {% empty %}
+        <li>Nothing Found!</li>
+        {% endfor %}
+ 
+    </div>
+</div>
+  <div class="text-center">
+    <button class="checkout"><a href="{% url 'core:checkout' %}">checkout</button></a>
+  </div>
+  
+
+    
+{% endblock %}
+
+
+
+

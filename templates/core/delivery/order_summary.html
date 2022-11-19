@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<body>
+<section style="min-height:100vh">
+    <div class="m-5">
     <i><h2>Order Summary</h2></i>
 <div class="container py-5">
     <div class="position-relative m-4">
         <div class="progress" style="height: 1px;">
-          <div class="progress-bar" role="progressbar" aria-label="Progress" style="width: 100%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" role="progressbar" aria-label="Progress" style="width:80%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
             </div>
         </div>
         <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;"><i class="fa fa-check" aria-hidden="true"></i>
@@ -14,63 +15,54 @@
         <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;"><i class="fa fa-check" aria-hidden="true"></i>
             <P>shipped</P</button>
         <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;"><i class="fa fa-check" aria-hidden="true"></i>
-            <P>ordered</P</button>
+            <P>delivered</P</button>
     </div>
     <br>
-    <div class="card">
+    <div class="card m-2">
         <div class="card-body">
-            <i class="fa-brands fa-product-hunt"></i>
-           <b><div class="card-title font-6 roboto"><p>Product Details</p></b> 
+            <i class="fa-solid fa-shopping-cart"></i>
+            <b><div class="card-title font-6 roboto"><p class="bg-info">Product Details</b>
                 <div class="card-text font poppins">
-                <p>---------</p>
-                <p>---------</p>
-                <p>---------</p>
-                <p>Product shipped on:</p>
-                </div>
-            </div>
-        </div>
+        {% for item in cart.items %}
+        <p>{{item.product}}<br>&pound;{{item.product.price}}</p>
+          <p class="fw-bold">{{item.quantity}}</span></p>
+        {% empty %}
+        <li>Nothing Found!</li>
+        {% endfor %}     
     </div>
-    <div class="card">
+    </div>
+    </div>
+    <div class="card m-2">
         <div class="card-body">
             <i class="fa-solid fa-truck-fast"></i>
-            <b><div class="card-title font-6 roboto"><p>Delivery Details</b>
+            <b><div class="card-title font-6 roboto"><p class="bg-info">Delivery Details</b>
                 <div class="card-text font poppins">
                     <p>Name :</p>
                     <p>Contact No :</p>
                     <p>Address :</p>
-                    <p>Expected delivery :</p>
+                  
                 </div>
             </div>
         </div>
     </div>
-    <div class="card">
+    <div class="card m-2">
         <div class="card-body">
            <i class="fas fa-credit-card" ></i>
-           <b> <div class="card-title font-6 roboto"><p>payment Mode</p></b>
+           <b> <div class="card-title font-6 roboto"><p class="bg-info">payment Mode</p></b>
                 <div class="card-text font poppins">
                     <p>----------</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-body">
-            <i class="fa-solid fa-dollar-sign"></i>
-            <b><div class="card-title font-6 roboto"><p>Price Details</p></b>
-                <div class="card-text font poppins">
-                    <p>Order Total :------</p>
-                    <p>Offers :------</p>
-
-                </div>
-            </div>
-        </div>
     </div>
         <br>
         <div class="text-center">
-            <button class="btn2" class="btn2">confirm</button>
+            <button class=" btn1" ><a href="{% url 'core:ordr_placed' %}">Confirm</button></a>
     </div>
 </div>
-</body>
+</div>
+</section>
 
 
 {% endblock content%}

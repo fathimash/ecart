@@ -1,5 +1,7 @@
 
-{% extends 'base.html' %}{% block content %}
+{% extends 'base.html' %}
+{% block content %}
+
 <section class="py-5">
   <div class="container">
     <div class="row">
@@ -25,6 +27,7 @@
             </h5>
              <p class="card-text">Price: {{product.price}}</p>
             <p class="card-text overflow-hidden" style="height: 50px;">Description: {{product.description}}</p>
+            <p class="card-text">Size: {{product.size}}</p>
             <!-- categories -->
            
             <div>
@@ -35,7 +38,7 @@
                 {% endfor %}
               </ul>
             </div>
-            <p class="card-text">Category: {{product.category}}</p>
+            <!-- <p class="card-text">Category: {{product.category}}</p> -->
             <p class="card-text text-muted fst-italic">
               Last updated: {{product.updated_on|date}}
             </p>
