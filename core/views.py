@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from core import models as core_models
 from core.forms import FeedbackForm, ProductForm
 from django.views import generic as views
+from user import models as user_models
 
 
 # home view
@@ -169,7 +170,9 @@ class CartDeleteView(views.DeleteView):
 
 # delivery
 class DeliveryView(views.TemplateView):
+    model = user_models.AddressModel
     template_name = "core/delivery/delivery_address.html"
+    context_object_name = "addresss"
 
 
 # shipment
@@ -214,11 +217,6 @@ class PaymentsuccessView(views.TemplateView):
     template_name = "core/payment/paysuccess.html"
 
 
-# user
-class UserView(views.TemplateView):
-    template_name = "core/user/user.html"
-
-
 # add more  details
 class AdddetailView(views.TemplateView):
     template_name = "core/user/add_details.html"
@@ -226,5 +224,8 @@ class AdddetailView(views.TemplateView):
 
 # add new address
 class AddnewaddressView(views.TemplateView):
-    template_name = "core/user/addnew_address.html"
+    template_name = "user/addnew_address.html"
 
+#product
+class productView(views.TemplateView):
+    template_name = "core/product.html"

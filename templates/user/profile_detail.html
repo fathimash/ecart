@@ -3,7 +3,7 @@
 <section class="gradient-custom-2" style="min-height:100vh">
   <div>
     <a href="{% url 'core:home' %}">
-      <h1 class="poppins text-center text-white pt-5">PlayR</h1>
+      <h1 class="poppins text-center text-white pt-5">ecart</h1>
     </a>
   </div>
   <div class="container py-5 h-100">
@@ -50,6 +50,8 @@
                   Gender : {{user.profilemodel.gender}}</p>
                 <p class="font-italic mb-1">
                   phone_number : {{user.profilemodel.phone_number}}</p>
+                  <p class="font-italic mb-1">
+                    address : {{user.profilemodel.address}}</p>
                 <form action="{% url 'user:profile_update' user.profilemodel.id %}" id="profileimageupdate"
                   enctype="multipart/form-data">
                   {% csrf_token %}

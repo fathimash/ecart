@@ -1,54 +1,58 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<Body background ="https://media.istockphoto.com/id/1094721986/vector/abstract-of-pink-living-coral-color-sky-background.jpg?s=612x612&w=0&k=20&c=dGDrG_m4WNfCFAcYRFBSrIcS2QnhLlzIs1FDGqkjnG8=">
 <section style="min-height:100vh">
     <div class="m-5">
     <i><h2>Order Summary</h2></i>
 <div class="container py-5">
     <div class="position-relative m-4">
         <div class="progress" style="height: 1px;">
-          <div class="progress-bar" role="progressbar" aria-label="Progress" style="width:80%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" role="progressbar" aria-label="Progress" style="width:43%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
             </div>
         </div>
         <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;"><i class="fa fa-check" aria-hidden="true"></i>
             <P>ordered</P</button>
-        <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;"><i class="fa fa-check" aria-hidden="true"></i>
+        <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height:2rem;"><i class="fa fa-check" aria-hidden="true"></i>
             <P>shipped</P</button>
-        <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;"><i class="fa fa-check" aria-hidden="true"></i>
+        <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height:2rem;"><i class="fa fa-check" aria-hidden="true"></i>
             <P>delivered</P</button>
     </div>
     <br>
     <div class="card m-2">
         <div class="card-body">
-            <i class="fa-solid fa-shopping-cart"></i>
-            <b><div class="card-title font-6 roboto"><p class="bg-info">Product Details</b>
+           
+            <b><div class="card-title font-6 roboto"><p class="bg-info">Product Details  <i class="fa-solid fa-shopping-cart"></i></b>
                 <div class="card-text font poppins">
         {% for item in cart.items %}
         <p>{{item.product}}<br>&pound;{{item.product.price}}</p>
           <p class="fw-bold">{{item.quantity}}</span></p>
+          <p>{{item.size}}{{item.product.size}}</p>
+
         {% empty %}
         <li>Nothing Found!</li>
         {% endfor %}     
     </div>
     </div>
     </div>
+    </div>
     <div class="card m-2">
         <div class="card-body">
-            <i class="fa-solid fa-truck-fast"></i>
-            <b><div class="card-title font-6 roboto"><p class="bg-info">Delivery Details</b>
+            <b><p class="bg-info">Delivery Details <i class="fa-solid fa-truck-fast"></i></b></p>
                 <div class="card-text font poppins">
-                    <p>Name :</p>
-                    <p>Contact No :</p>
-                    <p>Address :</p>
+                    <p> First_name : {{user.profilemodel.first_name}}</p>
+        <p> Last_name : {{user.profilemodel.last_name}}</p>
+        <p> phone_number : {{user.profilemodel.phone_number}}</p>
+        <div>
+          <p> address : {{user.profilemodel.address.all}}</p>
+        </div>
                   
                 </div>
             </div>
         </div>
-    </div>
+
     <div class="card m-2">
         <div class="card-body">
-           <i class="fas fa-credit-card" ></i>
-           <b> <div class="card-title font-6 roboto"><p class="bg-info">payment Mode</p></b>
+           <b> <div class="card-title font-6 roboto"><p class="bg-info">payment Mode  <i class="fas fa-credit-card" ></i></p></b>
                 <div class="card-text font poppins">
                     <p>----------</p>
                 </div>
@@ -63,6 +67,5 @@
 </div>
 </div>
 </section>
-
-
+</Body>
 {% endblock content%}
