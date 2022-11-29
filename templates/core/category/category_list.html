@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-<Body background="">
+<Body background="https://i.pinimg.com/originals/80/7c/33/807c33ff38cef690083555dd4f6396bc.jpg">
 <section class="bg-light">
   <div class="p-4">
     <div class="row">
@@ -33,44 +33,3 @@
 </Body>
 {% endblock content %}
 
-<!-- <section class="py-5">
-  <div class="container">
-    <div class="row">
-        <div class="col">
-            <h2 class="text-center">Category List</h2>
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <table class="table table-bordered align-middle">
-          <thead>
-            <tr class="text-center fw-bold">
-              <th >Sl no</th>
-              <th>Name</th>
-              <th>parent</th>
-              <th>Last Updated</th>
-              
-            </tr>
-          </thead>
-          <tbody>
-            {% for category in categories %}
-
-            <tr>
-              <td class="text-center fw-bold">{{forloop.counter}}</td>
-              <td><a href="{% url 'core:product_by_category' category.id %}">{{category.name}}</a></td>
-              <td>{{category.parent}}</td>
-              <td>{{category.updated_on|date}}</td>
-            
-            </tr>
-            {% empty %}
-            <tr>
-              <td colspan="4">No categories!</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section> -->

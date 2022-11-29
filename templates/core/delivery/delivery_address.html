@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<Body background="https://media.istockphoto.com/id/1094721986/vector/abstract-of-pink-living-coral-color-sky-background.jpg?s=612x612&w=0&k=20&c=dGDrG_m4WNfCFAcYRFBSrIcS2QnhLlzIs1FDGqkjnG8=">
+<!-- <Body background="https://media.istockphoto.com/id/1094721986/vector/abstract-of-pink-living-coral-color-sky-background.jpg?s=612x612&w=0&k=20&c=dGDrG_m4WNfCFAcYRFBSrIcS2QnhLlzIs1FDGqkjnG8="> -->
 <section style="min-height:100vh">
   <div class=" m-5">
     <i>
@@ -19,43 +19,26 @@
 
     <div class="card m-5">
       <div class="card-body">
-        <b><p class="bg-info">User Details  <i class="fa-solid fa-user"></i>  </b></p>
+        <b><p class="bg-info">User Details  <i class="fa-solid fa-user"></i></b></p>
         <p> First_name : {{user.profilemodel.first_name}}</p>
         <p> Last_name : {{user.profilemodel.last_name}}</p>
         <p> Gender : {{user.profilemodel.gender}}</p>
         <p> phone_number : {{user.profilemodel.phone_number}}</p>
         <div>
           {% for address in user.profilemodel.address.all %}
-          <p> address : {{user.profilemodel.address.all}}</p>
+          <p>address : {{address}}</p>
           {% endfor %}
         </div>
           <b><p class="bg-info">Product Details <i class="fa-solid fa-shopping-cart"></i></b></p>
-      
       {% for item in cart.items %}
-      <p>{{item.product}}<br>&pound;{{item.product.price}}</p>
-        <p class="fw-bold">{{item.quantity}}</span></p>
-        <p>{{item.size}}{{item.product.size}}</p>
-
+      <p>{{item}}<br>&pound;{{item.product.price}}</p>
+      <p>size: {{item.size}}{{item.product.size}}</p>
       {% empty %}
       <li>Nothing Found!</li>
       {% endfor %}     
 
   </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
     <h3>Receipt</h3>
     <div class="card text-center">
       <div class="card-body">

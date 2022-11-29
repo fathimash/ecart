@@ -14,6 +14,11 @@ class UserRegisterform(UserCreationForm):
 
 # Profile Form
 class ProfileForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        request = kwargs.pop("request")
+        super().__init__(*args, **kwargs)
+        self.fields["address"].queryset = request.user.profilemodel.address.all()
+
     class Meta:
         model = user_models.ProfileModel
         exclude = (
@@ -21,7 +26,6 @@ class ProfileForm(forms.ModelForm):
             "created_on",
             "updated_on",
         )
-       
 
 
 class AddressForm(forms.ModelForm):

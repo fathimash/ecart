@@ -67,9 +67,6 @@ urlpatterns = [
     path("cancelorder/", views.CancelorderView.as_view(), name="cancelorder"),
      # canceltemplate
     path("canceltemplate/", views.CanceltemplateView.as_view(), name="canceltemplate"),
-    
-
-
     # payment
     path("payment/", views.PaymentView.as_view(), name="payment"),
     # payment success
@@ -77,8 +74,6 @@ urlpatterns = [
     path("add_details/", views.AdddetailView.as_view(), name="add_details"),
     path("addnew_address/", views.AddnewaddressView.as_view(), name="addnew_address"),
 
-    #product
-    path("product/", views.productView.as_view(), name="product"),
 
 
 ]

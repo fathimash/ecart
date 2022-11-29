@@ -1,6 +1,7 @@
 from django.db import models
 from django .contrib.auth import get_user_model
 
+
 class FeedbackModel(models.Model):
     name = models.CharField(max_length=64)
     email = models.EmailField()

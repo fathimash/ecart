@@ -1,6 +1,6 @@
 {% extends 'base.html' %}{% block content %}
 
-<section class="gradient-custom-2" style="min-height:100vh">
+<section class="gradient-custom-2" style="min-height: 100vh">
   <div>
     <a href="{% url 'core:home' %}">
       <h1 class="poppins text-center text-white pt-5">ecart</h1>
@@ -10,16 +10,25 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-lg-9 col-xl-7">
         <div class="card">
-          <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height: 200px">
+          <div
+            class="rounded-top text-white d-flex flex-row"
+            style="background-color: #000; height: 200px"
+          >
             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px">
               {% if user.profilemodel %}
-              <img id="profileImage" src="{{user.profilemodel.image.url}}" alt="Generic placeholder image"
-                class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1" />
+              <img
+                id="profileImage"
+                src="{{user.profilemodel.image.url}}"
+                alt="Generic placeholder image"
+                class="img-fluid img-thumbnail mt-4 mb-2"
+                style="width: 150px; z-index: 1"
+              />
 
-
-              <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style="z-index: 1">
-                <a href="{% url 'user:profile_update' user.profilemodel.id %}" >Edit profile
-              </button></a>
+              <a
+                href="{% url 'user:profile_update' user.profilemodel.id %}"
+                class="btn btn-outline-dark"
+                >Edit profile
+              </a>
             </div>
             <div class="ms-3" style="margin-top: 130px">
               <h5 class="text-capitalize">{{user.profilemodel.user}}</h5>
@@ -43,23 +52,38 @@
               <p class="lead fw-normal mb-1">About</p>
               <div class="p-4" style="background-color: #f8f9fa">
                 <p class="font-italic mb-1 text-capitalize">
-                  First_name : {{user.profilemodel.first_name}}</p>
+                  First_name : {{user.profilemodel.first_name}}
+                </p>
                 <p class="font-italic mb-1 text-capitalize">
-                  Last_name : {{user.profilemodel.last_name}}</p>
+                  Last_name : {{user.profilemodel.last_name}}
+                </p>
                 <p class="font-italic mb-1 text-capitalize">
-                  Gender : {{user.profilemodel.gender}}</p>
+                  Gender : {{user.profilemodel.gender}}
+                </p>
                 <p class="font-italic mb-1">
-                  phone_number : {{user.profilemodel.phone_number}}</p>
-                  <p class="font-italic mb-1">
-                    address : {{user.profilemodel.address}}</p>
-                <form action="{% url 'user:profile_update' user.profilemodel.id %}" id="profileimageupdate"
-                  enctype="multipart/form-data">
+                  phone_number : {{user.profilemodel.phone_number}}
+                </p>
+                <div>
+                  {% for address in user.profilemodel.address.all %}
+                  <p>address : {{address}}</p>
+                  {% endfor %}
+                </div>
+                <form
+                  action="{% url 'user:profile_update' user.profilemodel.id %}"
+                  id="profileimageupdate"
+                  enctype="multipart/form-data"
+                >
                   {% csrf_token %}
-                  <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+                  <input
+                    id="imageUpload"
+                    type="file"
+                    name="profile_photo"
+                    placeholder="Photo"
+                    required=""
+                    capture
+                  />
                 </form>
-
               </div>
-
             </div>
             {% else %}
             <tr>
@@ -75,7 +99,5 @@
       </div>
     </div>
   </div>
-  </div>
 </section>
-{% include 'includes/footer.html' %}
-{% endblock content %}
+{% include 'includes/footer.html' %} {% endblock content %}

@@ -1,9 +1,10 @@
+from django.contrib import messages
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.views import generic as views
 
 from core import models as core_models
 from core.forms import FeedbackForm, ProductForm
-from django.views import generic as views
 from user import models as user_models
 
 
@@ -17,6 +18,8 @@ class HomeView(views.TemplateView):
 # about_us view
 class AboutView(views.TemplateView):
     template_name = "core/about_us.html"
+
+
 
 
 # ================================= FEEDBACK ================================= #
@@ -124,14 +127,9 @@ class CategoryListView(views.ListView):
     context_object_name = "categories"
 
 
-
-
 # =================================CATEGORY END================================= #
 
 # cart
-
-
-from django.contrib import messages
 
 
 class AddToCartView(views.View):
@@ -157,14 +155,14 @@ class AddToCartView(views.View):
         return redirect(url)
 
 
-#cart
+# cart
 class CartView(views.TemplateView):
     template_name = "core/checkout/cart.html"
 
 
-#remove
+# cartremove
 class CartDeleteView(views.DeleteView):
-    template_name = "core/checkout/cart_delete.html"  
+    template_name = "core/checkout/cart_delete.html"
     model = core_models.CartModel
 
 
@@ -192,7 +190,6 @@ class OrderplacedView(views.TemplateView):
     template_name = "core/orderplaced/ordr_placed.html"
 
 
-
 # checkout
 class CheckoutView(views.TemplateView):
     template_name = "core/checkout/checkout.html"
@@ -201,10 +198,9 @@ class CheckoutView(views.TemplateView):
 class CancelorderView(views.TemplateView):
     template_name = "core/checkout/cancelorder.html"
 
+
 class CanceltemplateView(views.TemplateView):
     template_name = "core/checkout/canceltemplate.html"
-
-
 
 
 # payment
@@ -225,7 +221,3 @@ class AdddetailView(views.TemplateView):
 # add new address
 class AddnewaddressView(views.TemplateView):
     template_name = "user/addnew_address.html"
-
-#product
-class productView(views.TemplateView):
-    template_name = "core/product.html"

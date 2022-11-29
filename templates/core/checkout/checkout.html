@@ -8,10 +8,9 @@
       </div>
       <div class="column">
         {% for item in cart.items %}
-        <p>{{item.product}}<br>&pound;{{item.product.price}}</p>
+        <p>{{item}}<br>&pound;{{item.product.price}}</p>
         <p>{{item.description}}{{item.product.description}}</p>
-        <p>{{item}}</p>
-        <p>{{item.size}}{{item.product.size}}</p>
+        <p>size:{{item.size}}{{item.product.size}}</p>
 
        
         <!-- <label> Size:</label> -->
@@ -58,7 +57,6 @@
   <div class="text-center">
     <button class="checkout" id="checkout"> <a href="{% url 'core:cart' %}">Return To Cart</button>
     <button class="checkout" id="checkout"><a href="{% url 'core:delivery' %}">Checkout</button></a>
-    <button class="checkout" id="checkout"><a href="{% url 'core:cancelorder' %}"> Cancel Order</button></a>
   </div>
   </div>
 

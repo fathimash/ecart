@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<Body background ="https://media.istockphoto.com/id/1094721986/vector/abstract-of-pink-living-coral-color-sky-background.jpg?s=612x612&w=0&k=20&c=dGDrG_m4WNfCFAcYRFBSrIcS2QnhLlzIs1FDGqkjnG8=">
+<!-- <Body background ="https://media.istockphoto.com/id/1094721986/vector/abstract-of-pink-living-coral-color-sky-background.jpg?s=612x612&w=0&k=20&c=dGDrG_m4WNfCFAcYRFBSrIcS2QnhLlzIs1FDGqkjnG8="> -->
 <section style="min-height:100vh">
     <div class="m-5">
     <i><h2>Order Summary</h2></i>
@@ -24,9 +24,8 @@
             <b><div class="card-title font-6 roboto"><p class="bg-info">Product Details  <i class="fa-solid fa-shopping-cart"></i></b>
                 <div class="card-text font poppins">
         {% for item in cart.items %}
-        <p>{{item.product}}<br>&pound;{{item.product.price}}</p>
-          <p class="fw-bold">{{item.quantity}}</span></p>
-          <p>{{item.size}}{{item.product.size}}</p>
+        <p>{{item}}<br>&pound;{{item.product.price}}</p>
+        <p>size: {{item.size}}{{item.product.size}}</p>
 
         {% empty %}
         <li>Nothing Found!</li>
@@ -43,9 +42,10 @@
         <p> Last_name : {{user.profilemodel.last_name}}</p>
         <p> phone_number : {{user.profilemodel.phone_number}}</p>
         <div>
-          <p> address : {{user.profilemodel.address.all}}</p>
-        </div>
-                  
+            {% for address in user.profilemodel.address.all %}
+            <p>address : {{address}}</p>
+            {% endfor %}
+          </div>   
                 </div>
             </div>
         </div>
@@ -63,6 +63,7 @@
         <br>
         <div class="text-center">
             <button class=" btn1" ><a href="{% url 'core:ordr_placed' %}">Confirm</button></a>
+            <button class="checkout" id="checkout"><a href="{% url 'core:cancelorder' %}"> Cancel Order</button></a>
     </div>
 </div>
 </div>
