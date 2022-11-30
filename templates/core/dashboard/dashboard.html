@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content %}
+<body background="https://media.istockphoto.com/id/1094721986/vector/abstract-of-pink-living-coral-color-sky-background.jpg?s=612x612&w=0&k=20&c=dGDrG_m4WNfCFAcYRFBSrIcS2QnhLlzIs1FDGqkjnG8=">
+<section id="sidebar"> 
+    <div class="white-label">
+    </div> 
+    <div id="sidebar-nav">   
+      <ul>
+        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="{% url 'core:product_list' %}"><i class="fa fa-desktop"></i> My Website</a></li>
+        <li><a href="{% url 'core:home' %}"><i class="fa fa-usd"></i> Ecommerce</a></li>
+        <li><a href="#"><i class="fa fa-pencil-square"></i> My Blog</a></li>
+        <li><a href="#"><i class="fa fa-sitemap"></i> SEO Tools</a></li>
+        <li><a href="#"><i class="fa fa-line-chart"></i> Reporting</a></li>
+        <li><a href="#"><i class="fa fa-comments"></i>Social Marketing</a></li>
+        <li><a href="#"><i class="fa fa-map-marker"></i> Get Traffic</a></li>     
+        <li><a href="#"><i class="fa fa-users"></i> Employees</a></li>
+        <li><a href="#"><i class="fa fa-calendar"></i> Reservations</a></li>
+        <li><a href="{% url 'core:about_us' %}"><i class="fa fa-calendar"></i> About us</a></li>
+      </ul>
+    </div>
+  </section>
+  <section id="content">
+    <div id="header">
+      <div class="header-nav">
+        <div class="menu-button">
+          <!--<i class="fa fa-navicon"></i>-->
+        </div>
+        <div class="nav bg-pink">
+          <ul>
+            <li class="nav-settings">
+              <div class="font-icon"><i class="fa fa-tasks"></i></div>
+            </li>
+            <li class="nav-mail">
+              <div class="font-icon"><i class="fa fa-envelope"></i></div>
+            </li>
+            <li class="nav-calendar">
+              <div class="font-icon"><i class="fa fa-calendar"></i></div>
+            </li>
+            <li class="nav-chat">
+              <div class="font-icon"><i class="fa fa-comments"></i></div>
+            </li>
+            <div class="nav-profile">
+              <div class="nav-profile-image">
+                <img src="{{user.profilemodel.image.url}}" alt="profile-img" alt="profile image">
+                <div class="nav-profile-name">fathima shajahan<i class="fa fa-caret-down"></i></div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content m-1">
+      <div class="content-header">
+        <h1>Dashboard</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div id="sortable">
+        <div class="widget-box sample-widget">
+        <div class="widget-header widget-header-red">
+          <h2>REVIEWS</h2>
+          <i class="fa fa-cog"></i>
+        </div>
+        <div class="widget-content">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/87118/sample-data-1.png">
+        </div>
+      </div>
+        <div class="widget-box sample-widget">
+        <div class="widget-header widget-header-purple">
+          <h2>ACTIVITIES</h2>
+          <i class="fa fa-cog"></i>
+        </div>
+        <div class="widget-content">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/87118/sample-data-1.png">
+        </div>
+      </div>
+        <div class="widget-box sample-widget">
+        <div class="widget-header widget-header-yellow">
+          <h2>SERVICES</h2>
+          <i class="fa fa-cog"></i>
+        </div>
+        <div class="widget-content">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/87118/sample-data-1.png">
+        </div>
+      </div>
+        <div class="widget-box sample-widget">
+        <div class="widget-header widget-header-blue">
+          <h2>PRODUCTION</h2>
+          <i class="fa fa-cog"></i>
+        </div>
+        <div class="widget-content">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/87118/sample-data-1.png">
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+</body>
+{% endblock %}

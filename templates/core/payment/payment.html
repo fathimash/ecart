@@ -1,9 +1,9 @@
 
 {% extends 'base.html' %}
 {% block content %}
-<!-- <Body background="https://media.istockphoto.com/id/1094721986/vector/abstract-of-pink-living-coral-color-sky-background.jpg?s=612x612&w=0&k=20&c=dGDrG_m4WNfCFAcYRFBSrIcS2QnhLlzIs1FDGqkjnG8="> -->
+<section style="background-image: url(https://media.istockphoto.com/id/1094721986/vector/abstract-of-pink-living-coral-color-sky-background.jpg?s=610)">
 <section style="min-height:100vh">
-<div class="container m-5">
+<div class="container bg-pink m-5">
  <i> <h2>Payment Form</h2></i>
 
  <div class="position-relative m-5">
@@ -50,23 +50,15 @@
   <p>product Charge :</p>
   <p>Delivery Charge :</p>
   <p>COD Charge :</p> -->
-  <p>ORDER TOTAL :   
-  {% for item in cart.items %}
-  {{item.product.price}}
-  {% empty %}
-  <li>Nothing Found!</li>
-  {% endfor %} 
-  </p>
-
-  
-  <p style="text-align:center">Clicking on continue will not deduct any money</p>
+  <p>ORDER TOTAL :   <b>INR {{cart.total}}</b>  </p>
+<p style="text-align:center">Clicking on continue will not deduct any money</p>
 <div class="text-center">
   <button class="btn1"><a href="{% url 'core:paymentsuccess' %}"> Continue</button></a>
 </div>
 </div>
 </div>
 </section>
-</Body>
+</section>
   {% endblock %}
 
 

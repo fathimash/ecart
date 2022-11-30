@@ -6,6 +6,8 @@ from django.views import generic as views
 from core import models as core_models
 from core.forms import FeedbackForm, ProductForm
 from user import models as user_models
+from django.db.models import F, Q
+
 
 
 # home view
@@ -221,3 +223,19 @@ class AdddetailView(views.TemplateView):
 # add new address
 class AddnewaddressView(views.TemplateView):
     template_name = "user/addnew_address.html"
+
+# dashbboard
+class DashboardView(views.TemplateView):
+    template_name = "core/dashboard/dashboard.html"
+
+#search
+class ProductSearchView(views.ListView):
+    template_name = "core/list.html"
+    model = core_models.ProductModel
+    context_object_name = "products"
+
+    def get_queryset(self, *args, **kwargs):
+        qs = super().get_queryset(*args, **kwargs)
+        q = self.request.GET.get("q", None)
+        qs = qs.filter(Q(name__icontains=q) | Q(category__name__icontains=q))
+        return qs

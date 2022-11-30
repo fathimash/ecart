@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<!-- <Body background ="https://media.istockphoto.com/id/1094721986/vector/abstract-of-pink-living-coral-color-sky-background.jpg?s=612x612&w=0&k=20&c=dGDrG_m4WNfCFAcYRFBSrIcS2QnhLlzIs1FDGqkjnG8="> -->
+<section style="background-image: url(https://media.istockphoto.com/id/1094721986/vector/abstract-of-pink-living-coral-color-sky-background.jpg?s=612x612&w=0&k=20&c=dGDrG_m4WNfCFAcYRFBSrIcS2QnhLlzIs1FDGqkjnG8=)">
 <section style="min-height:100vh">
-    <div class="m-5">
+    <div class="container bg-pink m-5">
     <i><h2>Order Summary</h2></i>
 <div class="container py-5">
     <div class="position-relative m-4">
@@ -52,9 +52,10 @@
 
     <div class="card m-2">
         <div class="card-body">
-           <b> <div class="card-title font-6 roboto"><p class="bg-info">payment Mode  <i class="fas fa-credit-card" ></i></p></b>
+           <b> <div class="card-title font-6 roboto"><p class="bg-info">payment Details  <i class="fas fa-credit-card" ></i></p></b>
                 <div class="card-text font poppins">
-                    <p>----------</p>
+                    <p>ORDER TOTAL :   <b>INR {{cart.total}}</b>  </p>
+
                 </div>
             </div>
         </div>
@@ -68,5 +69,5 @@
 </div>
 </div>
 </section>
-</Body>
+</section>
 {% endblock content%}

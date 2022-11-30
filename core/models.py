@@ -1,5 +1,6 @@
 from django.db import models
-from django .contrib.auth import get_user_model
+from django.db.models import F,Q,Sum,Count,Avg
+from django.contrib.auth import get_user_model
 
 
 class FeedbackModel(models.Model):
@@ -15,7 +16,8 @@ class FeedbackModel(models.Model):
         return f"{self.subject}"
 
 
-#Category
+# Category
+
 
 class CategoryModel(models.Model):
     name = models.CharField(max_length=64)
@@ -27,7 +29,9 @@ class CategoryModel(models.Model):
     def __str__(self):
         return f"{self.name}"
 
+
 # Unit model
+
 
 class UnitModel(models.Model):
     name = models.CharField(max_length=64)
@@ -44,7 +48,8 @@ class UnitModel(models.Model):
         return f"{self.name}"
 
 
-#product
+# product
+
 
 class ProductModel(models.Model):
     name = models.CharField(max_length=64)
@@ -56,14 +61,12 @@ class ProductModel(models.Model):
     status = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    
 
     def __str__(self):
         return f"{self.name}"
 
 
- 
-USER=get_user_model()
+USER = get_user_model()
 
 # Cart Model
 class CartModel(models.Model):
@@ -72,13 +75,20 @@ class CartModel(models.Model):
     status = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    size = models.CharField(default=0,max_length=5)
+    size = models.CharField(default=0, max_length=5)
+
     def items(self):
         cart_items = CartItemModel.objects.filter(
             cart=self,
             status=True,
         )
         return cart_items
+
+    def total(self):
+        amount = CartModel.objects.aggregate(
+            amount=Sum(F("cartitemmodel__product__price") * F("cartitemmodel__quantity"))
+        ).get("amount", 0)
+        return amount
 
     def __str__(self):
         return f"{self.user}"
@@ -95,4 +105,3 @@ class CartItemModel(models.Model):
 
     def __str__(self):
         return f"{self.product}({self.quantity})"
-

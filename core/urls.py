@@ -73,6 +73,10 @@ urlpatterns = [
     path("paymentsuccess/", views.PaymentsuccessView.as_view(), name="paymentsuccess"),
     path("add_details/", views.AdddetailView.as_view(), name="add_details"),
     path("addnew_address/", views.AddnewaddressView.as_view(), name="addnew_address"),
+    #dashboard
+    path("dashboard/", views.DashboardView.as_view(), name="dashboard"),
+    #search
+    path("product/search/",views.ProductSearchView.as_view(),name="product_search"),
 
 
 

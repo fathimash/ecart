@@ -42,13 +42,13 @@ class UserLoginView(views.View):
         if user is not None:
             # to login user
             login(request, user)
-            messages.success(request, "Successfully Logged in!")
+            print("USER is valid.............LOGGED IN")
             return redirect(self.success_url)
-        messages.error(request, "Login Failed")
+        print("USER is not valid.............")
+        print("FORM is not valid.............")
         context = {"form": form}
         return render(request, self.template_name, context)
-
-
+        
 class UserLogoutView(views.View):
     template_name = "registration/logged_out.html"
 
